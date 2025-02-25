@@ -219,6 +219,8 @@ Tracking sales performance, customer distribution and market trends.
 
 ## References and Further Reading
 - [deck.gl Documentation](https://deck.gl/docs)
+- [deck.gl Gallery](https://deck.gl/gallery)
+- [deck.gl Examples](https://deck.gl/examples)
 - [deck.gl GitHub Repository](https://github.com/visgl/deck.gl)
 - [`DeckGL` component](https://deck.gl/docs/api-reference/react/deckgl)
 - [`Map` component](https://deck.gl/docs/api-reference/react/map)
