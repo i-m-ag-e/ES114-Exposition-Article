@@ -1,0 +1,16 @@
+.quarto-dark code:not(.sourceCode)
+{
+    background-color: rgba(67,67,67,.65);
+    color: white;
+}
+
+iframe {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: 80vw;height: 80vh;
+    z-index: 100;
+}
+.block{ 
+    height: 80vh;
+}

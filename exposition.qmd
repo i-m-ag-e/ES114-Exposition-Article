@@ -1,0 +1,222 @@
+---
+title: "deck.gl: A High Performance GPU-Powered Visualization Framework"
+date: today
+author: ["Akul Gupta", "Akshit Chhabra", "Aayush Kuloor"]
+format:
+    html:
+        code-line-numbers: true
+        css: exposition.css
+        highlight-style: ayu
+        toc: true
+        theme:
+            light: flatly
+            dark: darkly
+---
+
+--- 
+## Introduction
+
+`deck.gl` is a powerful and versatile GPU-based framework for creating stunning and interactive visual representations of large datasets. It is an open-source tool built on WebGL originally developed by  Uber and now maintained under the OpenJS Foundation. 
+
+`deck.gl` is built to handle large datasets efficiently by leveraging GPU capabilites to render complex visualizations. A major appilcation of `deck.gl` is it's ability to efficiently visualize geo-spatial data (like maps and 3D scans). It is highly compatible with major basemap providers like [Mapbox](https://www.mapbox.com/) and [Google Maps](https://maps.google.com). It also provides interactive event-handling like picking, highlighting and filtering which allows users to interact with individual datapoints on the maps with ease. 
+
+## Installation and Setup
+
+To install and run `deck.gl` on your system, you will need `npm` (Node.js package manager).  
+
+Instructions to install `npm` on your system can be found [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).  
+
+To install the `deck.gl` framework:
+
+```shell
+npm install deck.gl --save
+```
+
+This should install the `deck.gl` module which includes all the `deck.gl` features and their dependencies. More detailed instructions about installation can be found on the [`deck.gl` website](https://deck.gl/docs/get-started/getting-started)
+
+## Key Features and Explanation
+
+#### 1. GPU Acceleration
+Unlike traditional data visualization libraries that rely heavily on CPU computation, `deck.gl` enables the rendering of massive datasets directly on the GPU.
+
+#### 2. Layer-based Approach:
+`deck.gl` visualizations use layers as building blocks. Layers accept data and map it to visual elements rendered on the GPU. Each layer represents a specific type of visualization, and these layers can then be combined together to form complex visuals. 
+
+The main types of layers are:
+
+- Core Layers
+- Aggregation Layers
+- Geo Layers
+- Mesh Layers
+
+For an exhaustive list of layers, visit the [`deck.gl` Layer Catalog](https://deck.gl/docs/api-reference/layers)
+
+#### 3. Integration with Mapping Libraries:
+`deck.gl` is highly compatible with mapping libraries like [Mapbox](https://www.mapbox.com/), [Google Maps](https://maps.google.com), [OpenStreetMap](https://www.openstreetmap.org/).
+
+#### 4. Compatible With Multiple Data Formats:
+`deck.gl` uses [`loaders.gl`](https://loaders.gl/) to read data and resources. `loaders.gl` supports various data formats such as CSV, GeoJSON, LAS, 3D Tiles (such as Point Clouds and Batch 3D models), Vector Tiles (such as Mapbox) and many more. 
+
+#### 5. Interactivity:
+`deck.gl` has built-in support for zooming, panning, tooltips and hover events.
+
+## Code Examples
+
+The following code snippets shows how to display a simple map in `deck.gl`, centred on **Vancouver, Canada**, and use `HexagonLayer` to display the [number of trees across the city](https://opendata.vancouver.ca/explore/dataset/public-trees/) in the form of hexagonal bars. The entire source code of the example can be accessed from [here](!).
+
+The code is written in [Typescript](https://www.typescriptlang.org/) and rendered using [React](https://react.dev/). It uses the following imports 
+
+```ts
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import {Map} from 'react-map-gl/maplibre';
+import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
+import {HexagonLayer} from '@deck.gl/aggregation-layers';
+import DeckGL from '@deck.gl/react';
+import {CSVLoader} from '@loaders.gl/csv';
+import {load} from '@loaders.gl/core';
+import type {Color, PickingInfo, MapViewState} from '@deck.gl/core';
+```
+
+First up, we render an empty map. For that, we get the map style from [Carto](https://docs.carto.com/). We define some constants corresponding to the source of our map, and the public trees dataset.
+```js
+const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
+const DATA_URL =
+  'https://raw.githubusercontent.com/Aayush75/ES114-Exposition-Article/refs/heads/main/final_data.csv'; 
+```
+
+Then, we use a `Map` component with the `mapStyle` property set to `MAP_STYLE`, inside a `DeckGL` component and then render it using the `.render()` method on our `root` HTML element.
+```js
+function App(/* args */) {
+    return (
+    <DeckGL
+        // options
+    >
+      <Map reuseMaps mapStyle={MAP_STYLE} />
+    </DeckGL>
+    );
+}
+
+async function renderToDOM(container: HTMLDivElement) {
+    const root = createRoot(container);
+    root.render(<App />);
+}
+```
+
+Now, to add a `HexagonLayer` on the map, we create a `layers` array with a single `HexagonLayer` element. The `HexagonLayer` constructor takes an object with various properties that modify the characteristics and behaviour of the rendered layer. For convenience and reusability, we have defined a React component called `App` that does this.
+```js
+export default function App({
+  data = null,
+  mapStyle = MAP_STYLE
+}: {
+  data?: DataPoint[] | null;
+  mapStyle?: string;
+  radius?: number;
+  upperPercentile?: number;
+  coverage?: number;
+}) {
+  // ...
+
+  const layers = [
+    new HexagonLayer<DataPoint>({
+      id: 'heatmap',
+      gpuAggregation: true,
+      colorRange,
+      coverage: sliderCoverage / 100,
+      data,
+      elevationRange: [0, 80],
+      elevationScale: data && data.length ? 50 : 0,
+      extruded: true,
+      getPosition: d => d,
+      pickable: true,
+      radius: sliderRadius,
+      upperPercentile: sliderUPercentile,
+      material: {
+        ambient: 0.64,
+        diffuse: 0.6,
+        shininess: 32,
+        specularColor: [51, 51, 51]
+      },
+
+      transitions: {
+        elevationScale: 3000
+      }
+    })
+  ];
+
+  // ...
+}
+```
+The most important properties in the above constructor are
+
+- `data`: an array of *points*
+- `getPosition`: function that gets the coordinates in the form of `[<longitude>, <latitude>]` from a *point*
+- `pickable`: allows the elements on the layer to become interactive 
+- `radius`: specifies the radius in metres convered by a single hexagonal bar
+
+For more information about the different properties that can used, see [`HexagonLayer`](https://deck.gl/docs/api-reference/aggregation-layers/hexagon-layer).
+
+Finally, we can again use the `App` component to render the layers on the *root* element.
+```js
+async function renderToDOM(container: HTMLDivElement) {
+    // ...
+    const points = // get the points from the dataset
+    root.render(<App data={points} />);
+}
+```
+
+Here is the output the example above (the sliders have been added and are not provided by `deck.gl`)
+```{=html}
+<div class='block'></div>
+<iframe src="https://es-114-exposition.vercel.app/" title="deck.gl Visual" class='iframe'></iframe>
+```
+
+## Screenshots
+
+Here are some screenshots of visualizations created using `deck.gl`:
+
+::: {layout-ncol=2}
+
+![**GeoJSONLayer (Paths)**: Renders GeoJSON formatted data as polygons, lines and points](images/geojsonlayer_paths.png){.lightbox}
+ 
+![**LineLayer**: Renders straight lines joining pairs of source and target coordinates](images/line_layer.png){.lightbox}
+
+![**Google 3D Tiles**: A `CompositeLayer` that renders geometries based on the tile type](images/3d_tiles.png){.lightbox}
+
+![**TextLayer**: Renders text labels at given coordinates](images/text_layer.png){.lightbox}
+
+![**Minimap**: A regular layered view with a minimap in the corner](images/minimap.png){.lightbox}
+
+![**GlobeView**: projects the Earth into a 3D globe](images/globe_view.gif){.lightbox}
+
+:::
+
+## Use Cases
+
+#### 1. Climate Science:
+Visualizing weather patterns, temperature variations and environmental changes using animated layers and heatmaps
+
+#### 2. Geospatial Analytics:
+Analyzing tree coverage across a city, regions prone to flooding, land-use planning.
+
+#### 3. Urban Planning:
+Analyzing city traffic, infrastructure and property values in different areas.
+
+#### 4. Transportation:
+Tracking fleet movements, analyzing air traffic and optimizing routes.
+
+#### 5. Financial and Retail Analysis:
+Tracking sales performance, customer distribution and market trends.
+
+## Conclusion
+`deck.gl` is a robust and flexible tool for producing beautiful visualizations of big data. It is very effective in rendering sophisticated visuals by leveraging the GPU. It supports many mapping libraries and accepts many data formats. It is an excellent tool for visualizing geospatial data and can be applied in a wide range of applications such as climate science, urban planning and transportation.
+
+## References and Further Reading
+- [deck.gl Documentation](https://deck.gl/docs)
+- [deck.gl GitHub Repository](https://github.com/visgl/deck.gl)
+- [`DeckGL` component](https://deck.gl/docs/api-reference/react/deckgl)
+- [`Map` component](https://deck.gl/docs/api-reference/react/map)
+- [loaders.gl Documentation](https://loaders.gl/docs)
+- [React Documentation](https://react.dev/)
+- [Typescript Documentation](https://www.typescriptlang.org/)
+- [Mapbox](https://www.mapbox.com/)
