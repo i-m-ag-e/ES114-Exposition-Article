@@ -1,5 +1,5 @@
 ---
-title: "deck.gl: A High Performance GPU-Powered Visualization Framework"
+title: "deck.gl: A High Performance GPU-Powered Visualization Framework."
 date: today
 author: ["Akul Gupta", "Akshit Chhabra", "Aayush Kuloor"]
 format:
@@ -16,9 +16,9 @@ format:
 --- 
 ## Introduction
 
-`deck.gl` is a powerful and versatile GPU-based framework for creating stunning and interactive visual representations of large datasets. It is an open-source tool built on WebGL originally developed by  Uber and now maintained under the OpenJS Foundation. 
+`deck.gl` is a powerful and versatile GPU-based framework for creating stunning and interactive visual representations of large datasets. It is an open-source tool built on WebGL, which was developed initially by  Uber and is now maintained under the OpenJS Foundation. 
 
-`deck.gl` is built to handle large datasets efficiently by leveraging GPU capabilites to render complex visualizations. A major appilcation of `deck.gl` is it's ability to efficiently visualize geo-spatial data (like maps and 3D scans). It is highly compatible with major basemap providers like [Mapbox](https://www.mapbox.com/) and [Google Maps](https://maps.google.com). It also provides interactive event-handling like picking, highlighting and filtering which allows users to interact with individual datapoints on the maps with ease. 
+`deck.gl` is built to handle large datasets efficiently by leveraging GPU capabilities to render complex visualizations. A major application of `deck.gl` is its ability to efficiently visualize geospatial data (like maps and 3D scans). It is highly compatible with major base map providers like [Mapbox](https://www.mapbox.com/) and [Google Maps](https://maps.google.com). It also provides interactive event handling like picking, highlighting and filtering, which allows users to interact with individual data points on the maps with ease. 
 
 ## Installation and Setup
 
@@ -32,7 +32,7 @@ To install the `deck.gl` framework:
 npm install deck.gl --save
 ```
 
-This should install the `deck.gl` module which includes all the `deck.gl` features and their dependencies. More detailed instructions about installation can be found on the [`deck.gl` website](https://deck.gl/docs/get-started/getting-started)
+The above line should install the `deck.gl` module, including all the `deck.gl` features and their dependencies. More detailed instructions about the installation can be found on the [`deck.gl` website](https://deck.gl/docs/get-started/getting-started)
 
 ## Key Features and Explanation
 
@@ -62,9 +62,9 @@ For an exhaustive list of layers, visit the [`deck.gl` Layer Catalog](https://de
 
 ## Code Examples
 
-The following code snippets shows how to display a simple map in `deck.gl`, centred on **Vancouver, Canada**, and use `HexagonLayer` to display the [number of trees across the city](https://opendata.vancouver.ca/explore/dataset/public-trees/) in the form of hexagonal bars. The entire source code of the example can be accessed from [here](!).
+The following code snippets show how to display a simple map in `deck.gl`, centred on **Vancouver, Canada**, and use `HexagonLayer` to display the [number of trees across the city](https://opendata.vancouver.ca/explore/dataset/public-trees/) in the form of hexagonal bars. The entire source code of the example can be accessed from [here](!).
 
-The code is written in [Typescript](https://www.typescriptlang.org/) and rendered using [React](https://react.dev/). It uses the following imports 
+The code is written in [Typescript](https://www.typescriptlang.org/) and rendered using [React](https://react.dev/). It uses the following imports: 
 
 ```ts
 import React from 'react';
@@ -78,7 +78,7 @@ import {load} from '@loaders.gl/core';
 import type {Color, PickingInfo, MapViewState} from '@deck.gl/core';
 ```
 
-First up, we render an empty map. For that, we get the map style from [Carto](https://docs.carto.com/). We define some constants corresponding to the source of our map, and the public trees dataset.
+First, we render an empty map. For that, we get the map style from [Carto](https://docs.carto.com/). We define some constants corresponding to the source of our map and the public trees dataset.
 ```js
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
 const DATA_URL =
@@ -150,9 +150,9 @@ export default function App({
 The most important properties in the above constructor are
 
 - `data`: an array of *points*
-- `getPosition`: function that gets the coordinates in the form of `[<longitude>, <latitude>]` from a *point*
+- `getPosition`: a function that gets the coordinates in the form of `[<longitude>, <latitude>]` from a *point*
 - `pickable`: allows the elements on the layer to become interactive 
-- `radius`: specifies the radius in metres convered by a single hexagonal bar
+- `radius`: specifies the radius in metres covered by a single hexagonal bar
 
 For more information about the different properties that can used, see [`HexagonLayer`](https://deck.gl/docs/api-reference/aggregation-layers/hexagon-layer).
 
@@ -165,7 +165,7 @@ async function renderToDOM(container: HTMLDivElement) {
 }
 ```
 
-Here is the output the example above (the sliders have been added and are not provided by `deck.gl`)
+Here is the output of the example above (the sliders have been added and are not provided by `deck.gl`)
 ```{=html}
 <div class='block'></div>
 <iframe src="https://es-114-exposition.vercel.app/" title="deck.gl Visual" class='iframe'></iframe>
@@ -197,7 +197,7 @@ Here are some screenshots of visualizations created using `deck.gl`:
 Visualizing weather patterns, temperature variations and environmental changes using animated layers and heatmaps
 
 #### 2. Geospatial Analytics:
-Analyzing tree coverage across a city, regions prone to flooding, land-use planning.
+Analyzing tree coverage across a city, regions prone to flooding, and land-use planning.
 
 #### 3. Urban Planning:
 Analyzing city traffic, infrastructure and property values in different areas.
@@ -209,7 +209,7 @@ Tracking fleet movements, analyzing air traffic and optimizing routes.
 Tracking sales performance, customer distribution and market trends.
 
 ## Conclusion
-`deck.gl` is a robust and flexible tool for producing beautiful visualizations of big data. It is very effective in rendering sophisticated visuals by leveraging the GPU. It supports many mapping libraries and accepts many data formats. It is an excellent tool for visualizing geospatial data and can be applied in a wide range of applications such as climate science, urban planning and transportation.
+`deck.gl` is a robust and flexible tool for producing beautiful visualizations of big data. It is very effective in rendering sophisticated visuals by leveraging the GPU. It supports many mapping libraries and accepts many data formats. It is an excellent tool for visualizing geospatial data and can be used in a wide range of applications such as climate science, urban planning, and transportation.
 
 ## References and Further Reading
 - [deck.gl Documentation](https://deck.gl/docs)

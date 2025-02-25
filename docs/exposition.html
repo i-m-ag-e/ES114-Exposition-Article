@@ -11,7 +11,7 @@
 <meta name="author" content="Aayush Kuloor">
 <meta name="dcterms.date" content="2025-02-25">
 
-<title>deck.gl: A High Performance GPU-Powered Visualization Framework</title>
+<title>deck.gl: A High Performance GPU-Powered Visualization Framework.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">deck.gl: A High Performance GPU-Powered Visualization Framework</h1>
+<h1 class="title">deck.gl: A High Performance GPU-Powered Visualization Framework.</h1>
 </div>
 
 
@@ -175,8 +175,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p><code>deck.gl</code> is a powerful and versatile GPU-based framework for creating stunning and interactive visual representations of large datasets. It is an open-source tool built on WebGL originally developed by Uber and now maintained under the OpenJS Foundation.</p>
-<p><code>deck.gl</code> is built to handle large datasets efficiently by leveraging GPU capabilites to render complex visualizations. A major appilcation of <code>deck.gl</code> is it’s ability to efficiently visualize geo-spatial data (like maps and 3D scans). It is highly compatible with major basemap providers like <a href="https://www.mapbox.com/">Mapbox</a> and <a href="https://maps.google.com">Google Maps</a>. It also provides interactive event-handling like picking, highlighting and filtering which allows users to interact with individual datapoints on the maps with ease.</p>
+<p><code>deck.gl</code> is a powerful and versatile GPU-based framework for creating stunning and interactive visual representations of large datasets. It is an open-source tool built on WebGL, which was developed initially by Uber and is now maintained under the OpenJS Foundation.</p>
+<p><code>deck.gl</code> is built to handle large datasets efficiently by leveraging GPU capabilities to render complex visualizations. A major application of <code>deck.gl</code> is its ability to efficiently visualize geospatial data (like maps and 3D scans). It is highly compatible with major base map providers like <a href="https://www.mapbox.com/">Mapbox</a> and <a href="https://maps.google.com">Google Maps</a>. It also provides interactive event handling like picking, highlighting and filtering, which allows users to interact with individual data points on the maps with ease.</p>
 </section>
 <section id="installation-and-setup" class="level2">
 <h2 class="anchored" data-anchor-id="installation-and-setup">Installation and Setup</h2>
@@ -184,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Instructions to install <code>npm</code> on your system can be found <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">here</a>.</p>
 <p>To install the <code>deck.gl</code> framework:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>npm install deck.gl --save</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This should install the <code>deck.gl</code> module which includes all the <code>deck.gl</code> features and their dependencies. More detailed instructions about installation can be found on the <a href="https://deck.gl/docs/get-started/getting-started"><code>deck.gl</code> website</a></p>
+<p>The above line should install the <code>deck.gl</code> module, including all the <code>deck.gl</code> features and their dependencies. More detailed instructions about the installation can be found on the <a href="https://deck.gl/docs/get-started/getting-started"><code>deck.gl</code> website</a></p>
 </section>
 <section id="key-features-and-explanation" class="level2">
 <h2 class="anchored" data-anchor-id="key-features-and-explanation">Key Features and Explanation</h2>
@@ -219,8 +219,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="code-examples" class="level2">
 <h2 class="anchored" data-anchor-id="code-examples">Code Examples</h2>
-<p>The following code snippets shows how to display a simple map in <code>deck.gl</code>, centred on <strong>Vancouver, Canada</strong>, and use <code>HexagonLayer</code> to display the <a href="https://opendata.vancouver.ca/explore/dataset/public-trees/">number of trees across the city</a> in the form of hexagonal bars. The entire source code of the example can be accessed from <a href="!">here</a>.</p>
-<p>The code is written in <a href="https://www.typescriptlang.org/">Typescript</a> and rendered using <a href="https://react.dev/">React</a>. It uses the following imports</p>
+<p>The following code snippets show how to display a simple map in <code>deck.gl</code>, centred on <strong>Vancouver, Canada</strong>, and use <code>HexagonLayer</code> to display the <a href="https://opendata.vancouver.ca/explore/dataset/public-trees/">number of trees across the city</a> in the form of hexagonal bars. The entire source code of the example can be accessed from <a href="!">here</a>.</p>
+<p>The code is written in <a href="https://www.typescriptlang.org/">Typescript</a> and rendered using <a href="https://react.dev/">React</a>. It uses the following imports:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource ts number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">'react'</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> {createRoot} <span class="im">from</span> <span class="st">'react-dom/client'</span><span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> {<span class="bu">Map</span>} <span class="im">from</span> <span class="st">'react-map-gl/maplibre'</span><span class="op">;</span></span>
@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7"></a><span class="im">import</span> {CSVLoader} <span class="im">from</span> <span class="st">'@loaders.gl/csv'</span><span class="op">;</span></span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="im">import</span> {load} <span class="im">from</span> <span class="st">'@loaders.gl/core'</span><span class="op">;</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="im">import</span> <span class="im">type</span> {Color<span class="op">,</span> PickingInfo<span class="op">,</span> MapViewState} <span class="im">from</span> <span class="st">'@deck.gl/core'</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>First up, we render an empty map. For that, we get the map style from <a href="https://docs.carto.com/">Carto</a>. We define some constants corresponding to the source of our map, and the public trees dataset.</p>
+<p>First, we render an empty map. For that, we get the map style from <a href="https://docs.carto.com/">Carto</a>. We define some constants corresponding to the source of our map and the public trees dataset.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">const</span> MAP_STYLE <span class="op">=</span> <span class="st">'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json'</span><span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">const</span> DATA_URL <span class="op">=</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="st">'https://raw.githubusercontent.com/Aayush75/ES114-Exposition-Article/refs/heads/main/final_data.csv'</span><span class="op">;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -294,9 +294,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The most important properties in the above constructor are</p>
 <ul>
 <li><code>data</code>: an array of <em>points</em></li>
-<li><code>getPosition</code>: function that gets the coordinates in the form of <code>[&lt;longitude&gt;, &lt;latitude&gt;]</code> from a <em>point</em></li>
+<li><code>getPosition</code>: a function that gets the coordinates in the form of <code>[&lt;longitude&gt;, &lt;latitude&gt;]</code> from a <em>point</em></li>
 <li><code>pickable</code>: allows the elements on the layer to become interactive</li>
-<li><code>radius</code>: specifies the radius in metres convered by a single hexagonal bar</li>
+<li><code>radius</code>: specifies the radius in metres covered by a single hexagonal bar</li>
 </ul>
 <p>For more information about the different properties that can used, see <a href="https://deck.gl/docs/api-reference/aggregation-layers/hexagon-layer"><code>HexagonLayer</code></a>.</p>
 <p>Finally, we can again use the <code>App</code> component to render the layers on the <em>root</em> element.</p>
@@ -305,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="kw">const</span> points <span class="op">=</span> <span class="co">// get the points from the dataset</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a>    <span class="bu">root</span><span class="op">.</span><span class="fu">render</span>(<span class="op">&lt;</span>App data<span class="op">=</span>{points} <span class="op">/&gt;</span>)<span class="op">;</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Here is the output the example above (the sliders have been added and are not provided by <code>deck.gl</code>)</p>
+<p>Here is the output of the example above (the sliders have been added and are not provided by <code>deck.gl</code>)</p>
 <div class="block"></div>
 <iframe src="https://es-114-exposition.vercel.app/" title="deck.gl Visual" class="iframe"></iframe>
 </section>
@@ -380,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="geospatial-analytics" class="level4">
 <h4 class="anchored" data-anchor-id="geospatial-analytics">2. Geospatial Analytics:</h4>
-<p>Analyzing tree coverage across a city, regions prone to flooding, land-use planning.</p>
+<p>Analyzing tree coverage across a city, regions prone to flooding, and land-use planning.</p>
 </section>
 <section id="urban-planning" class="level4">
 <h4 class="anchored" data-anchor-id="urban-planning">3. Urban Planning:</h4>
@@ -397,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p><code>deck.gl</code> is a robust and flexible tool for producing beautiful visualizations of big data. It is very effective in rendering sophisticated visuals by leveraging the GPU. It supports many mapping libraries and accepts many data formats. It is an excellent tool for visualizing geospatial data and can be applied in a wide range of applications such as climate science, urban planning and transportation.</p>
+<p><code>deck.gl</code> is a robust and flexible tool for producing beautiful visualizations of big data. It is very effective in rendering sophisticated visuals by leveraging the GPU. It supports many mapping libraries and accepts many data formats. It is an excellent tool for visualizing geospatial data and can be used in a wide range of applications such as climate science, urban planning, and transportation.</p>
 </section>
 <section id="references-and-further-reading" class="level2">
 <h2 class="anchored" data-anchor-id="references-and-further-reading">References and Further Reading</h2>
