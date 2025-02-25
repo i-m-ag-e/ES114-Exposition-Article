@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="code-examples" class="level2">
 <h2 class="anchored" data-anchor-id="code-examples">Code Examples</h2>
-<p>The following code snippets show how to display a simple map in <code>deck.gl</code>, centred on <strong>Vancouver, Canada</strong>, and use <code>HexagonLayer</code> to display the <a href="https://opendata.vancouver.ca/explore/dataset/public-trees/">number of trees across the city</a> in the form of hexagonal bars. The entire source code of the example can be accessed from <a href="!">here</a>.</p>
+<p>The following code snippets show how to display a simple map in <code>deck.gl</code>, centred on <strong>Vancouver, Canada</strong>, and use <code>HexagonLayer</code> to display the <a href="https://opendata.vancouver.ca/explore/dataset/public-trees/">number of trees across the city</a> in the form of hexagonal bars. The entire source code of the example can be accessed from <a href="https://github.com/akshit-codes/ES114-Exposition">here</a>.</p>
 <p>The code is written in <a href="https://www.typescriptlang.org/">Typescript</a> and rendered using <a href="https://react.dev/">React</a>. It uses the following imports:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource ts number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">'react'</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> {createRoot} <span class="im">from</span> <span class="st">'react-dom/client'</span><span class="op">;</span></span>
@@ -305,9 +305,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="kw">const</span> points <span class="op">=</span> <span class="co">// get the points from the dataset</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a>    <span class="bu">root</span><span class="op">.</span><span class="fu">render</span>(<span class="op">&lt;</span>App data<span class="op">=</span>{points} <span class="op">/&gt;</span>)<span class="op">;</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Here is the output of the example above (the sliders have been added and are not provided by <code>deck.gl</code>)</p>
+<p>Here is the output of the example above (the sliders have been added by us and are not provided by <code>deck.gl</code>):</p>
 <div class="block"></div>
 <iframe src="https://es-114-exposition.vercel.app/" title="deck.gl Visual" class="iframe"></iframe>
+<br>
+<p><a href="https://es-114-exposition.vercel.app/">Live Demo</a>  <a href="https://github.com/akshit-codes/ES114-Exposition">Source Code</a></p>
 </section>
 <section id="screenshots" class="level2">
 <h2 class="anchored" data-anchor-id="screenshots">Screenshots</h2>

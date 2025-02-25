@@ -62,7 +62,7 @@ For an exhaustive list of layers, visit the [`deck.gl` Layer Catalog](https://de
 
 ## Code Examples
 
-The following code snippets show how to display a simple map in `deck.gl`, centred on **Vancouver, Canada**, and use `HexagonLayer` to display the [number of trees across the city](https://opendata.vancouver.ca/explore/dataset/public-trees/) in the form of hexagonal bars. The entire source code of the example can be accessed from [here](!).
+The following code snippets show how to display a simple map in `deck.gl`, centred on **Vancouver, Canada**, and use `HexagonLayer` to display the [number of trees across the city](https://opendata.vancouver.ca/explore/dataset/public-trees/) in the form of hexagonal bars. The entire source code of the example can be accessed from [here](https://github.com/akshit-codes/ES114-Exposition).
 
 The code is written in [Typescript](https://www.typescriptlang.org/) and rendered using [React](https://react.dev/). It uses the following imports: 
 
@@ -165,11 +165,17 @@ async function renderToDOM(container: HTMLDivElement) {
 }
 ```
 
-Here is the output of the example above (the sliders have been added and are not provided by `deck.gl`)
+Here is the output of the example above (the sliders have been added by us and are not provided by `deck.gl`):
 ```{=html}
 <div class='block'></div>
 <iframe src="https://es-114-exposition.vercel.app/" title="deck.gl Visual" class='iframe'></iframe>
 ```
+
+```{=html}
+<br />
+```
+
+[Live Demo](https://es-114-exposition.vercel.app/)&emsp;&emsp;[Source Code](https://github.com/akshit-codes/ES114-Exposition)
 
 ## Screenshots
 
